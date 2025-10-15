@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Simple</title>
+    <script>
+        function calcular(op){
+            let a = parseFloat(document.querySelector("#vara").value);
+            let b = parseFloat(document.querySelector("#varb").value);
+            let c = 0;
+
+            switch(op){
+                case '+': c = a + b; break;
+                case '-': c = a - b; break;
+                case '*': c = a * b; break;
+                case '/':
+                    if (b === 0) {
+                        document.querySelector("#varc").value = "∞ (Error)";
+                        return;
+                    }
+                    c = a / b; 
+                    break;
+            }
+            document.querySelector("#varc").value = c;
+        }
+    </script>
+</head>
+<body>
+    <h2>Calculadora Simple</h2>
+    <label>Ingrese A:</label>
+    <input type="text" id="vara"><br><br>
+
+    <label>Ingrese B:</label>
+    <input type="text" id="varb"><br><br>
+
+    <button onclick="calcular('+')">Sumar</button>
+    <button onclick="calcular('-')">Restar</button>
+    <button onclick="calcular('*')">Multiplicar</button>
+    <button onclick="calcular('/')">Dividir</button><br><br>
+
+    <label>Resultado:</label>
+    <input type="text" id="varc" readonly>
+</body>
+</html>
